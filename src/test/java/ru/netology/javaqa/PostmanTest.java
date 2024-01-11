@@ -7,20 +7,20 @@ import static org.hamcrest.Matchers.equalTo;
 class PostmanTest {
 
     @Test
-    void shouldReturnSendData(){
-        var text = 'Hi';
+    void shouldReturnSomeData(){
+
         // Given - When - Then
 // Предусловия
         given()
                 .baseUri("https://postman-echo.com")
-                .body(text) // отправляемые данные (заголовки и query можно выставлять аналогично)
+                .body("good morning") // отправляемые данные (заголовки и query можно выставлять аналогично)
 // Выполняемые действия
                 .when()
                 .post("/post")
 // Проверки
                 .then()
                 .statusCode(200)
-                .body("data",equalTo(text))
+                .body("data",equalTo("good morning"))
         ;
     }
 }
